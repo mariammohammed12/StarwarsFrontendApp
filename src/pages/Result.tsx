@@ -14,7 +14,6 @@ import Starships from '../components/Starships';
 const Result = () => {
 
     const { searchValue } = useParams();
-    const [isLoading, setIsLoading] = useState(false);
     const [films, setFilms] = useState<FilmType[]>([]);
     const [starships, setStarships] = useState<StarshipsType[]>([]);
     const [vehicles, setVehicles] = useState<VehiclesType[]>([]);
@@ -29,21 +28,18 @@ const Result = () => {
         if (searchValue.toLowerCase() === 'films') {
             const allFilms = FilmData.films as FilmType[];
             setFilms(allFilms);
-            setIsLoading(false);
             return;
         }
 
         if (searchValue.toLowerCase() === 'starships') {
             const allStarships = StarshipsData.starships as unknown as StarshipsType[];
             setStarships(allStarships);
-            setIsLoading(false);
             return;
         }
 
         if (searchValue.toLowerCase() === 'vehicles') {
             const allVehicles = VehiclesData.vehicles as unknown as VehiclesType[];
             setVehicles(allVehicles);
-            setIsLoading(false);
         }
     }, [searchValue]);
 
